@@ -4,11 +4,12 @@ on:
    branches:
     - master
    tags:
+    - "v*"
 
 jobs:
   deploy-s3:
     uses: Vis-Rodrigues/workflow-template/.github/workflows/react-deploy-s3-action.yml@main
-    needs: build
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     with:
       s3-bucket-name: 'fiap-hmv-react-bucket'
     secrets:
