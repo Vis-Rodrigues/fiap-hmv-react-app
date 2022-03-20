@@ -1,11 +1,14 @@
-name: Build React e S3 Deploy Actions
-
+name: Build React
 on:
   push:
 
 jobs:
-  build-deploy:
-    uses: Vis-Rodrigues/workflow-template/.github/workflows/build-react-deploy-s3-action.yml@main
+  build:
+    uses: Vis-Rodrigues/workflow-template/.github/workflows/react-build-action.yml@main
+      
+  deploy-s3:
+    uses: Vis-Rodrigues/workflow-template/.github/workflows/react-deploy-s3-action.yml@main
+    needs: build
     with:
       s3-bucket-name: 'fiap-hmv-react-bucket'
     secrets:
