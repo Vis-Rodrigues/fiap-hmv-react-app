@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  terraform:
+  build-deploy:
     uses: Vis-Rodrigues/workflow-template/.github/workflows/deploy-s3-action.yml@main
     with:
       s3-bucket-name: 'fiap-hmv-react-bucket'
