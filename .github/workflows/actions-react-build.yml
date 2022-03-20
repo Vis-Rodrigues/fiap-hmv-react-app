@@ -1,0 +1,7 @@
+name: Build React
+on:
+  push:
+
+jobs:
+  build:
+    uses: Vis-Rodrigues/workflow-template/.github/workflows/react-build-action.yml@main
