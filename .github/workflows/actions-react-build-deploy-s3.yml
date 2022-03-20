@@ -9,6 +9,7 @@ jobs:
   deploy-s3:
     uses: Vis-Rodrigues/workflow-template/.github/workflows/react-deploy-s3-action.yml@main
     needs: build
+    if: github.ref_name == 'main' || github.ref_name == 'master'
     with:
       s3-bucket-name: 'fiap-hmv-react-bucket'
     secrets:
